@@ -1,0 +1,21 @@
+{
+  "name": "the-daily-commit-news-api-project",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/buildingBuild/the-daily-commit-developer-news-api#readme",
+  "bugs": {
+    "url": "https://github.com/buildingBuild/the-daily-commit-developer-news-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buildingBuild/the-daily-commit-developer-news-api.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
