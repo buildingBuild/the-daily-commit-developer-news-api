@@ -1,4 +1,7 @@
 import express from 'express'
+import lang from './routes/langRoutes.js'
+import everything from './routes/everything.js'
+import categories from './routes/categoryRoutes.js'
 const app = express();
 const port = process.env.PORT || 3000
 
@@ -26,46 +29,16 @@ const newsArticle_v2 = {
 
 
 
-app.get('/', (req, res) => {
 
 
-
-    res.status(200).json()
-
-
-})
-
-app.get('/random', (req, res) => {
+// Body parser 
+app.use(express.json())
+app.use(express.urlencoded({ extended: false })) // for feature that might allow users to add posts
 
 
-
-    res.status(200).json()
-
-
-})
-
-
-
-
-app.get('/categories', (req, res) => {
-
-
-
-    res.status(200).json()
-
-
-})
-
-
-app.get('/languages', (req, res) => {
-
-
-
-    res.status(200).json()
-
-
-})
-
+app.use('/', everything)
+app.use('/languages', lang)
+app.use('/categories', categories)
 
 
 app.listen(port, () => console.log(`Server is running on ${port}`))
