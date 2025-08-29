@@ -1,0 +1,207 @@
+{
+  "AI" : [
+{
+  "Headline": "Nvidia Sales Jump 56%, a Sign the A.I. Boom Isn`t Slowing Down",
+  "summary": "This article defends the allegations that ai is slowing down by citing nvidias sales jump ",
+  "link": "https://www.nytimes.com/2025/08/27/technology/nvidia-earnings-ai-chips.html#",
+  "src": "The New York Times",
+  "author": "Tripp Mickle",
+  "category": "AI",
+  "Date": "2025-08-27"
+}
+
+,
+{
+  "Headline": "A new way to test how well AI systems classify text",
+  "summary": "This article talks about new systems built to classify text",
+  "link": "https://news.mit.edu/2025/new-way-test-how-well-ai-systems-classify-text-0813",
+  "src": "MIT News",
+  "author": "",
+  "category": "AI",
+  "Date": "2025-08-13"
+}
+
+
+,
+{
+  "Headline": "AI drone finds missing hiker's remains in mountains after 10 months",
+  "summary": "This article talks about how image analysis helped recover hiker remains",
+  "link": "https://www.foxnews.com/tech/ai-drone-finds-missing-hikers-remains-mountains-after-10-months",
+  "src": "Fox News",
+  "author": "Kurt Knutsson",
+  "category": "AI",
+  "Date": "2025-08-27"
+}
+
+,
+{
+  "Headline": "Older Americans turning to AI-powered chatbots for companionship",
+  "summary": "This article talks about how the older generation is useing ai chatbots",
+  "link": "https://www.cbsnews.com/news/ai-chatbot-companionship-older-americans/",
+  "src": "Cbs News",
+  "author": "Meg Oliver",
+  "category": "AI",
+  "Date": "2025-08-05"
+}
+
+
+,
+{
+  "Headline": "AI simulation gives people a glimpse of their potential future self",
+  "summary": "This article talks about a new ai simulation that allows user to talk to older versions of themselves",
+  "link": "https://news.mit.edu/2024/ai-simulation-gives-people-glimpse-potential-future-self-1001",
+  "src": "MIT News",
+  "author": "Adam Zewe",
+  "category": "AI",
+  "Date": "2024-10-1"
+}
+
+,
+{
+  "Headline": "AI Startup Led by 21-Year-Old Thiel Fellow Lands $2 Billion Valuation",
+  "summary": "This article talks about an AI startup that got a huge enavluation",
+  "link": "https://finance.yahoo.com/news/ai-startup-led-21-old-140000280.html",
+  "src": "Yahoo finance",
+  "author": "Lizette Chapman",
+  "category": "AI",
+  "Date": "2025-02-20"
+},
+
+
+{
+  "Headline": "AI Startup Led by 21-Year-Old Thiel Fellow Lands $2 Billion Valuation",
+  "summary": "This article talks about an AI startup that got a huge enavluation",
+  "link": "https://finance.yahoo.com/news/ai-startup-led-21-old-140000280.html",
+  "src": "Yahoo finance",
+  "author": "Lizette Chapman",
+  "category": "AI",
+  "Date": "2025-02-20"
+}
+],
+
+  "Web development": [
+{
+  "Headline": "The Future of Web Development: Trends and Technologies on the Horizon",
+  "summary": "This article talks about the future of web development",
+  "link": "https://iotbusinessnews.com/2025/04/04/46285-the-future-of-web-development-trends-and-technologies-on-the-horizon/",
+  "src": "IOT Buisness News",
+  "author": "N/A",
+  "category": "webDev",
+  "Date": "2025-04-04"
+}
+
+
+,
+{
+  "Headline": "Best web design software of 2025",
+  "summary": "This article talks about good web design softwares in 2025",
+  "link": "https://www.techradar.com/news/best-web-design-software",
+  "src": "Tech Radar",
+  "author": "Steve Clark",
+  "category": "webDev",
+  "Date": "2025-08-08"
+}
+
+,
+{
+  "Headline": "Elixir: An Alternative to JavaScript-Based Web Development",
+  "summary": "This talks about a potential language that could rival javascript",
+  "link": "https://thenewstack.io/elixir-an-alternative-to-javascript-based-web-development/",
+  "src": "Thew New Stack",
+  "author": "Loraine Lawson",
+  "category": "webDev",
+  "Date": "2025-06-13"
+}
+],
+
+  "Robotics" :[
+{
+  "Headline": "Origami-inspired robotic plants grow with their environment",
+  "summary": "Researchers at Virginia Tech and Clemson collaborate to produce robotic sensors that mimic the characteristics of plants for optimal environmental monitoring.",
+  "link": "https://news.vt.edu/articles/2023/12/eng-me-suyi-li-plant-robotics.html",
+  "src": "Virginia Tech",
+  "author": "Alex Parrish",
+  "category": "Robotics",
+  "Date": "2024-01-04"
+}
+
+
+,
+{
+  "Headline": "Amazon announces over €700 million investment in robotics and AI powered technologies across Europe",
+  "summary": "Amazon is Investing in advanced technologies across Amazon’s European fulfilment centre network",
+  "link": "https://www.aboutamazon.eu/news/innovation/amazon-announces-over-700-million-investment-in-robotics-and-ai-powered-technologies-across-europe",
+  "src": "Amazon News",
+  "author": "Amazon Team",
+  "category": "Robotics",
+  "Date": "2024-04-11"
+}
+
+
+,
+{
+  "Headline": "RoboBall: Ball-like robot could map steep moon craters, rolling where rovers can’t ",
+  "summary": "Article talks about a ball like robot tha could change exploring the moon",
+  "link": "https://interestingengineering.com/innovation/roboball-to-map-steep-moon-craters",
+  "src": "Interesting Enginerring",
+  "author": "Mrigakshi Dixit",
+  "category": "Robotics",
+  "Date": "2025-08-25"
+}
+
+  ],
+
+  "Cybersecurity" :[
+
+{
+  "Headline": "Hackers steal data from Salesforce instances in widespread campaign",
+  "summary": "hackers abused a third-party tool in an attack spree designed to harvest credentials.",
+  "link": "https://www.cybersecuritydive.com/news/hackers-steal-data-salesforce-instances/758676/",
+  "src": "Cybersecurity dive",
+  "author": "Dvaid Jones",
+  "category": "cybersecurity",
+  "Date": "2025-08-26"
+},
+
+{
+  "Headline": "Fortinet SSL VPNs Hit by Global Brute-Force Wave Before Attackers Shift to FortiManager",
+  "summary": "Cybersecurity researchers are warning of a significant spike in brute-force traffic aimed at Fortinet SSL VPN devices",
+  "link": "https://thehackernews.com/2025/08/fortinet-ssl-vpns-hit-by-global-brute.html",
+  "src": "The hacker news",
+  "author": "Ravid Lakshmanan",
+  "category": "cybersecurity",
+  "Date": "2025-08-12"
+}
+
+  ],
+
+"Data Science" : [
+
+{
+  "Headline": "New data science methods could improve understanding of personality and psychopathology",
+  "summary": "This article talks about new data science methods being added",
+  "link": "https://news.vanderbilt.edu/2025/08/26/new-data-science-methods-may-improve-understanding-of-personality-and-psychopathology/",
+  "src": "VanderBilt University",
+  "author": "Jenna Somers",
+  "category": "Data Science",
+  "Date": "2025-08-26"
+},
+
+{
+  "Headline": "Changing our world : Conversations with women in data science",
+  "summary": "Yale students to talk about career development for women in data science",
+  "link": "https://news.yale.edu/2024/09/26/changing-our-world-conversations-women-data-science",
+  "src": "Yale News",
+  "author": "Jim Shelton",
+  "category": "Data Science",
+  "Date": "2025-08-26"
+}
+
+
+
+]
+
+
+
+
+}
