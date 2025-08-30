@@ -2,10 +2,19 @@ import express from 'express'
 import newsModel from '../Models/news.model.js'
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     console.log("You are in everything route")
-    res.status(200).json({ name: "everything" })
-    return;
+
+    try {
+        const newsss = await newsModel.find({})
+        res.status(200).json(newsss)
+
+    } catch (err) {
+
+        res.status(500).json({ name: "something wrong" })
+        return;
+    }
+
 })
 
 router.get('/random', (req, res) => {
