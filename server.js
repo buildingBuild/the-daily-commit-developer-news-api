@@ -8,9 +8,6 @@ const app = express();
 const port = process.env.PORT || 3000
 
 
-
-
-
 // Body parser 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false })) // for feature that might allow users to add posts
@@ -19,8 +16,9 @@ app.use(express.urlencoded({ extended: false })) // for feature that might allow
 // App Use 
 app.use(databseConnect)
 
-app.use('/', everything)
+app.use('/news', everything)
 app.use('/languages', lang)
 app.use('/categories', categories)
+
 
 app.listen(port, () => console.log(`Server is running on ${port}`))

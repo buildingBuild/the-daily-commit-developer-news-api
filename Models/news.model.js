@@ -2,22 +2,22 @@ import mongoose from 'mongoose'
 
 const NewsSchema = mongoose.Schema({
 
-    Category_Language: {
+    category: {
         type: String,
         required: [true, "Please enter a category or language"],
-    }, Headline: {
+    }, headline: {
         type: String,
         required: [true, "Please enter a Headline"],
-    }, Summary: {
+    }, summary: {
         type: String,
         required: false
-    }, Link: {
+    }, link: {
         type: String,
-        required: [true, "Src link must be entered"]
-    }, Src: {
+        required: [true, "link must be entered"]
+    }, src: {
         type: String,
         required: false
-    }, Author: {
+    }, author: {
         type: String,
         required: false
     },
@@ -42,5 +42,6 @@ const NewsSchema = mongoose.Schema({
 
 );
 
-const News = mongoose.model("Unapproved", NewsSchema)
-module.exports = News;
+const News = mongoose.model("Unapproved", NewsSchema, "Unapproved")
+
+export default News
