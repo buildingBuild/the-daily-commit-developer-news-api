@@ -1,13 +1,15 @@
 import express from 'express'
-import newsModel from '../Models/news.model.js'
+import { News, News2 } from '../Models/news.model.js'
 const router = express.Router();
 
 router.get('/', async (req, res) => {
     console.log("You are in everything route")
 
     try {
-        const newsss = await newsModel.find({})
-        res.status(200).json(newsss)
+
+        // const newsss = await newsModel.find().sort({ Date: 1 })
+        const everythingNews = await News2.find().sort({ Date: -1 })
+        res.status(200).json(everythingNews)
 
     } catch (err) {
 
@@ -87,5 +89,12 @@ export default router
         type: String,
         required: false
     },
+
+*/
+
+
+// What I learnt (put in notebook later)
+/*
+in the env string after./net specify which database you want to use
 
 */
