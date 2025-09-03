@@ -5,7 +5,7 @@ const NewsSchema = mongoose.Schema({
     category: {
         type: String,
         required: [true, "Please enter a category or language"],
-    }, headline: {
+    }, Headline: {
         type: String,
         required: [true, "Please enter a Headline"],
     }, summary: {
@@ -20,7 +20,10 @@ const NewsSchema = mongoose.Schema({
     }, author: {
         type: String,
         required: false
-    },
+    }, Date: {
+        type: String,
+        required: false
+    }
 
     /*
     Headline
@@ -44,5 +47,6 @@ const NewsSchema = mongoose.Schema({
 
 const News = mongoose.model("Unapproved", NewsSchema, "Unapproved")
 const News2 = mongoose.model("Categories", NewsSchema, "Categories")
+const News3 = mongoose.model("Everything", NewsSchema, "Everything")
 //const everythingNews = mongoose.model
-export { News, News2 }
+export { News, News2, News3 }

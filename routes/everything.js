@@ -1,86 +1,55 @@
 import express from 'express'
-import { News, News2 } from '../Models/news.model.js'
+import { News, News2, News3 } from '../Models/news.model.js'
 const router = express.Router();
 
 
-
-const mockData1 = {
-
-    Headline: "Nvidia Sales Jump 56%, a Sign the A.I. Boom Isn`t Slowing Down",
-    summary: "This article defends the allegations that ai is slowing down by citing nvidias sales jump ",
-    link: "https://www.nytimes.com/2025/08/27/technology/nvidia-earnings-ai-chips.html#",
-    src: "The New York Times",
-    author: "Tripp Mickle",
-    category: "AI",
-    Date: ("2025-08-27T00:00:00Z")
-
-}
 router.get('/', async (req, res) => {
     console.log("You are in everything route")
 
     // On this route users can only sort by recency and limit the amount they want
     try {
-        //let aritcles = [];
-        let limit;
-        let recent;
 
-        let limitDef = false;
-        let recentDef = false;
+        const limit = parseInt(req.query.limit) || 20;
+        let recent = req.query.recent === "true"
 
-        if (!req.query.limit) {
-            limit = 20
-            limitDef = true
+
+        if (recent) {
+            const everythingNews = await News3.find().sort({ Date: -1 }).limit(limit)
+            return res.status(200).json(everythingNews)
         }
-        if (!req.query.recent) {
-            recent = false;
-            recentDef = true
-        }
-
-
-        if (limitDef == false) {
-            limit = parseInt(req.query.limit)
-            limit = req.query.limit
-        }
-        if (recentDef == false && (req.query.recent == "true" || req.query.recent == "false")) {
-
-            recent = req.query.recent
+        else {
+            const everythingNews = await News3.aggregate([
+                { $sample: { size: limit } }
+            ]);
+            return res.status(200).json(everythingNews);
         }
 
-
-
-        console.log(limit)
-        console.log(recent)
-
-
-
-        return res.status(200).json({ name: "you won" })
-
-        // articles.slice(0, limit)
-        // const newsss = await newsModel.find().sort({ Date: 1 })
-        // const everythingNews = await News2.find().sort({ Date: -1 })
-        // res.status(200).json(everythingNews)
-        // let newArray = 
     } catch (err) {
         console.log(err.message)
-        res.status(500).json({ name: "something wrong" })
-        return;
+        return res.status(500).json({ name: "something wrong" })
+
     }
 
 })
 
 // On this route users get only one random article 
-router.get('/random', (req, res) => {
-    console.log("You are in everything random route")
-    return res.status(200).json({ name: "random" })
+router.get('/random', async (req, res) => {
+    let limit = 1;
+    const randomNews = await News3.aggregate([
+        { $sample: { size: limit } }
+    ]);
+    return res.status(200).json(randomNews)
 
 })
 
 // On this route users get 5 posts that are highly rated
-router.get('/weekyly_digest', (req, res) => {
+router.get('/weekyly_digest', async (req, res) => {
     console.log("You are in weekly Digest")
     let limit = 5;
+    // Implement later in the schema
+    // const weeklyDigest = await News3.find().sort({ rating: -1 }).limit(limit)
 
-    return res.status(200).json({ name: "weeklyDigest" })
+    return res.status(200).json(weeklyDigest)
 
 })
 
@@ -125,37 +94,32 @@ router.post('/', async (req, res) => {
 
 })
 
+
+router.post('/upvote', async (req, res) => {
+
+
+
+
+})
+
 export default router
 
 
-/*
+function shuffle(array) {
 
+    let shuffledArray = [];
+    let usedIndexes = [];
 
-    Category_Language: {
-        type: String,
-        required: [true, "Please enter a category or language"],
-    }, Headline: {
-        type: String,
-        required: [true, "Please enter a Headline"],
-    }, Summary: {
-        type: String,
-        required: false
-    }, Link: {
-        type: String,
-        required: [true, "Src link must be entered"]
-    }, Src: {
-        type: String,
-        required: false
-    }, Author: {
-        type: String,
-        required: false
-    },
+    let i = 0;
+    while (i < array.length) {
 
-*/
+        let randNumber = Math.floor(Math.random() * array.length)
+        if (!usedIndexes.includes(randNumber)) {
+            shuffledArray.push(array[randNumber])
+            usedIndexes.push(randNumber)
+            i++
+        }
+    }
+    return shuffledArray
+}
 
-
-// What I learnt (put in notebook later)
-/*
-in the env string after./net specify which database you want to use
-
-*/
