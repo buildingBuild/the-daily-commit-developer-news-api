@@ -5,7 +5,7 @@ import categories from './routes/categoryRoutes.js'
 import fs from "fs/promises"
 import databseConnect from './Middleware/databaseConnect.js'
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 
 // Body parser 
