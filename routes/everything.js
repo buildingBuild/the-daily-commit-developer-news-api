@@ -78,7 +78,9 @@ router.get('/random', (req, res) => {
 // On this route users get 5 posts that are highly rated
 router.get('/weekyly_digest', (req, res) => {
     console.log("You are in weekly Digest")
-    return res.status(200).json({ name: "random" })
+    let limit = 5;
+
+    return res.status(200).json({ name: "weeklyDigest" })
 
 })
 
