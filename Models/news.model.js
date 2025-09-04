@@ -23,20 +23,11 @@ const NewsSchema = mongoose.Schema({
     }, Date: {
         type: String,
         required: false
+    },
+    rating: {
+        type: Number,
+        required: false
     }
-
-    /*
-    Headline
-    "Nvidia Sales Jump 56%, a Sign the A.I. Boom Isn`t Slowing Down"
-    summary
-    "This article defends the allegations that ai is slowing down by citing…"
-    link
-    "https://www.nytimes.com/2025/08/27/technology/nvidia-earnings-ai-chips…"
-    src
-    "The New York Times"
-    author
-    "Tripp Mickle"
-    */
 
 },
     {

@@ -1,5 +1,6 @@
 import express from 'express'
 import { News, News2, News3 } from '../Models/news.model.js'
+import voted from '../Models/voted.model.js';
 const router = express.Router();
 
 
@@ -43,11 +44,10 @@ router.get('/random', async (req, res) => {
 })
 
 // On this route users get 5 posts that are highly rated
-router.get('/weekyly_digest', async (req, res) => {
+router.get('/weekly_digest', async (req, res) => {
     console.log("You are in weekly Digest")
     let limit = 5;
-    // Implement later in the schema
-    // const weeklyDigest = await News3.find().sort({ rating: -1 }).limit(limit)
+    const weeklyDigest = await News3.find().sort({ rating: -1 }).limit(limit)
 
     return res.status(200).json(weeklyDigest)
 
@@ -94,11 +94,63 @@ router.post('/', async (req, res) => {
 
 })
 
-
 router.post('/upvote', async (req, res) => {
+    let userVote
+    try {
+        const clientip = req.ip // using this to prevent user from voting twice
+        const { newsId, vote } = req.body
+
+        if (!newsId || !vote) {
+            return res.status(400).json({ message: "You are missing required fields" })
+        }
+        else {
+
+            userVote = parseInt(vote)
+            if (!isNaN(userVote) && (userVote === 1 || userVote === -1)) {
+
+                const articleExist = await News3.findOne({ _id: newsId })
+                if (!articleExist) return res.status(404).json({ message: "Article does not exist" })
+
+            } else {
+                return res.status(404).json({ message: "Vote must be either 1 or -1 and must be a number" })
+            }
+
+        }
+
+
+        const result = await voted.findOne({ id: newsId, ip_address: req.ip })
+
+        if (!result) { // allows user votes
+
+            if (userVote == 1) {
+                const newsArticle = await News3.updateOne({ _id: newsId },
+                    { $inc: { rating: 1 } })
+            }
+            else if (userVote == -1) {
+                const newsArticle = await News3.updateOne({ _id: newsId },
+                    { $inc: { rating: -1 } })
+            }
+            else {
+                return res.status(400).json({ message: "Your vote has to be -1 to decrease or 1 to add" })
+            }
+            await voted.insertOne({
+                id: newsId,
+                ip_address: req.ip
+            })
+            return res.status(200).json({ message: "Voted! Good Job" })
+
+        }
+        else {
+            return res.status(403).json({ message: "You can not vote more than once" })
+        }
 
 
 
+    }
+    catch (err) {
+        console.error(err)
+        return res.status(400).json({ message: "Bad request", erroMessage: err.message })
+    }
 
 })
 
