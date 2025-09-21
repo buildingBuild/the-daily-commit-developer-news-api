@@ -1,7 +1,6 @@
 <h2 align="center"> The Daily Commit </h2>
-A REST API providing curated news and articles sources across CS sectors (AI, Security, Web, Systems) and programming languages.
 
-The Daily Commit is a developer-focused news platform exposed as a REST API. It aggregates high-quality programming articles, organizes them intelligently by languages and computer science sectors, and layers in community-driven ranking to surface what really matters. Think of it as a personalized knowledge feed for engineers, ready to integrate into dashboards, bots, or custom tools.
+The Daily Commit is a developer-centric news aggregation REST API that delivers curated insights across key computer science domains (AI, Security, Web, Systems) and popular programming languages(Go, python, Javascript, Rust). Beyond just aggregation, it empowers the community by allowing developers to submit articles, upvote/downvote content, and drive a ranking system that surfaces the best developer news.
 
 ## 🌐 Deployed API
 
