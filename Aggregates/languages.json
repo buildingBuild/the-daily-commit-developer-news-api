@@ -1,5 +1,6 @@
-{
+[
 
+{
  "Headline": "Microsoft unveils Proxy 4 library for polymorphic coding in C++",
   "summary": "Microsoft adds a new library for c++",
   "link": "https://www.nytimes.com/2025/08/27/technology/nvidia-earnings-ai-chips.html#",
@@ -7,11 +8,18 @@
   "author": "Tripp Mickle",
   "category": "AI",
   "Date": "2025-08-27"
- 
-
-
-
+}
+{
+ "Headline": "Microsoft unveils Proxy 4 library for polymorphic coding in C++",
+  "summary": "Microsoft adds a new library for c++",
+  "link": "https://www.nytimes.com/2025/08/27/technology/nvidia-earnings-ai-chips.html#",
+  "src": "The New York Times",
+  "author": "Tripp Mickle",
+  "category": "AI",
+  "Date": "2025-08-27"
+}
 
 
 }
+]
 

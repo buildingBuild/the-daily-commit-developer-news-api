@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
         }
         else {
             const everythingNews = await News3.aggregate([
-                { $sample: { size: limit } }
+                { $sample: { size: limit } },
+                { $sort: { upvotes: -1 } }
             ]);
             return res.status(200).json(everythingNews);
         }

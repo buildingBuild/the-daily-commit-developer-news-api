@@ -14,25 +14,35 @@ router.get('/', async (req, res) => {
         const limit = parseInt(req.query.limit) || 5;
         const recent = req.query.recent || "true"
 
-        let codes = ["ai", "wb", "r", "c", "ds"]
+        let codes = ["AI", "webDev", "Robotics", "cybersecurity", "dScience"]
 
         if (codes.includes(searchCategory, 0)) {
 
             console.log(searchCategory)
-            const categoryNews = await News2.find().sort({ Date: -1 }).limit(limit)
+
 
             if (recent) {
+
+                const categoryNews = await News2.aggregate([
+                    { $match: { category: searchCategory } },
+
+                    { $sample: { size: limit } },
+                    { $sort: { Date: -1 } },
+                    { $sort: { upvotes: -1 } }
+                ]);
 
                 return res.status(200).json(categoryNews)
             }
             else {
                 const categoryNews = await News2.aggregate([
-                    { $sample: { size: limit } }
+                    { $match: { category: searchCategory } },
+                    { $sample: { size: limit } },
+                    { $sort: { upvotes: -1 } }
                 ]);
+
+
                 return res.status(200).json(categoryNews);
             }
-
-
 
         }
         else {
