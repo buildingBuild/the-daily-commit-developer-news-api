@@ -15,5 +15,5 @@ The Daily Commit is a developer-centric news aggregation REST API that delivers 
 <li> Node.js </li>
 <li> Express </li>
 <li> MongoDB/Mongoose </li>
-<li> OpenAPI/Swagger </li>
+<li> Swagger </li>
 <li> JavaScript </li>
