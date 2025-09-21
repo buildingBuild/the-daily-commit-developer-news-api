@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router();
-import { News, News2, News3 } from '../Models/news.model.js'
+import { News, News2, News3, News4 } from '../Models/news.model.js'
 
 
 // javascript
@@ -9,29 +9,49 @@ import { News, News2, News3 } from '../Models/news.model.js'
 // goLang
 // Rust
 // python
+
+/*
+copy text , turn to uppercase , turn all to lowercase,
+ capitalize selected text, reword text with chatgpt , get link of current website
+*/
 router.get('/', async (req, res) => {
-    console.log("You are in languages route")
-
-
     try {
+        console.log("Languages routes")
 
         const { language } = req.query
-        let limit = req.query.language || 5
+        let limit = parseInt(req.query.language) || 5
+        const recent = req.query.recent || "true"
+        let codes = ["Rust", "golang", "javascript", "cplusplus", "python", "java"]
 
 
-        const categoryNews = await News2.aggregate([
-            { $match: { category: language } },
-            { $sample: { size: limit } },
-            { $sort: { Date: -1 } },
-            { $sort: { upvotes: -1 } }
-        ]);
+        if (codes.includes(language, 0)) {
 
-        res.status(200).json({ name: "lang" })
+            if (recent === "true") {
+                const langNews = await News4.aggregate([
+                    { $match: { category: language } },
+                    { $sample: { size: limit } },
+                    { $sort: { Date: -1 } },
+                    { $sort: { upvotes: -1 } }
+                ]);
+                res.status(200).json(langNews)
+            }
+            else {
+                const langNews = await News4.aggregate([
+                    { $match: { category: language } },
+                    { $sample: { size: limit } },
+                    { $sort: { upvotes: -1 } }
+                ]);
+                res.status(200).json(langNews)
 
+            }
+        }
+        else {
 
+            res.status(400).json({ message: "Invalid Sector" })
+        }
     }
     catch (err) {
-        res.status(200).json({ message: err.message })
+        res.status(400).json({ message: err.message })
     }
 
 })

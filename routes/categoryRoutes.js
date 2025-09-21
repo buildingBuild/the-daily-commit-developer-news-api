@@ -21,8 +21,7 @@ router.get('/', async (req, res) => {
             console.log(searchCategory)
 
 
-            if (recent) {
-
+            if (recent == "true") {
                 const categoryNews = await News2.aggregate([
                     { $match: { category: searchCategory } },
 
@@ -39,8 +38,6 @@ router.get('/', async (req, res) => {
                     { $sample: { size: limit } },
                     { $sort: { upvotes: -1 } }
                 ]);
-
-
                 return res.status(200).json(categoryNews);
             }
 

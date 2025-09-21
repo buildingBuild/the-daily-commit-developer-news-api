@@ -39,5 +39,6 @@ const NewsSchema = mongoose.Schema({
 const News = mongoose.model("Unapproved", NewsSchema, "Unapproved")
 const News2 = mongoose.model("Categories", NewsSchema, "Categories")
 const News3 = mongoose.model("Everything", NewsSchema, "Everything")
+const News4 = mongoose.model("Everything", NewsSchema, "Languages")
 //const everythingNews = mongoose.model
-export { News, News2, News3 }
+export { News, News2, News3, News4 }
