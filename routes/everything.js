@@ -15,7 +15,11 @@ router.get('/', async (req, res) => {
 
 
         if (recent) {
-            const everythingNews = await News3.find().sort({ Date: -1 }).limit(limit)
+            const everythingNews = await News3.aggregate([
+                { $sort: { Date: -1 } },
+                { $sample: { size: limit } },
+                { $sort: { upvotes: -1 } }
+            ]);
             return res.status(200).json(everythingNews)
         }
         else {
