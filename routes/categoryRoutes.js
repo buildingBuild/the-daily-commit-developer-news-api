@@ -4,22 +4,51 @@ const router = express.Router();
 
 
 
-router.get('/:sector', (req, res) => {
 
-    console.log(req.params.sector)
+router.get('/', async (req, res) => {
 
-    const codes = ["ai", "wb", "r", "c", "ds"]
-    if (codes.includes(req.params.sector)) {
+    try {
 
-        console.log("YOUR IN")
+
+        const { searchCategory } = req.query
+        const limit = parseInt(req.query.limit) || 5;
+        const recent = req.query.recent || "true"
+
+        let codes = ["ai", "wb", "r", "c", "ds"]
+
+        if (codes.includes(searchCategory, 0)) {
+
+            console.log(searchCategory)
+            const categoryNews = await News2.find().sort({ Date: -1 }).limit(limit)
+
+            if (recent) {
+
+                return res.status(200).json(categoryNews)
+            }
+            else {
+                const categoryNews = await News2.aggregate([
+                    { $sample: { size: limit } }
+                ]);
+                return res.status(200).json(categoryNews);
+            }
+
+
+
+        }
+        else {
+            res.status(400).json({ message: "Invalid Sector" })
+        }
+
     }
-    else {
-        res.status(400).json({ message: "Invalid Sector" })
+    catch (err) {
+        res.status(400).json({ message: err.message })
     }
 
-    console.log("You are in categories route")
-    res.status(200).json({ name: "categories" })
+
 })
+
+
+
 
 
 
