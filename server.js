@@ -4,6 +4,9 @@ import everything from './routes/everything.js'
 import categories from './routes/categoryRoutes.js'
 import fs from "fs/promises"
 import databseConnect from './Middleware/databaseConnect.js'
+import errorHandler from './Middleware/error.js'
+
+
 const app = express();
 const port = process.env.PORT || 8000
 
@@ -16,9 +19,19 @@ app.use(express.urlencoded({ extended: false })) // for feature that might allow
 // App Use 
 app.use(databseConnect)
 
+
+
 app.use('/news', everything)
 app.use('/languages', lang)
 app.use('/categories', categories)
+
+
+app.use((req, res, next) => {
+    const error = new Error('Route not found')
+    error.status = 404;
+    next(error);
+})
+app.use(errorHandler)
 
 
 app.listen(port, () => console.log(`Server is running on ${port}`))

@@ -14,7 +14,9 @@ import { News, News2, News3, News4 } from '../Models/news.model.js'
 copy text , turn to uppercase , turn all to lowercase,
  capitalize selected text, reword text with chatgpt , get link of current website
 */
-router.get('/', async (req, res) => {
+
+
+router.get('/', async (req, res, next) => {
     try {
         console.log("Languages routes")
 
