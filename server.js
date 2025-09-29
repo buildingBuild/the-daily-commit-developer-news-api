@@ -13,7 +13,8 @@ import nodemailer from "nodemailer"
 const app = express();
 const port = process.env.PORT || 8000
 
-cron.schedule("*/10 * * * *", async function () {
+/* cron service works just need to use email api
+cron.schedule("10 * * * *", async function () {
     const databaseUpdated = false;
     const newPost = false;
     const currentDate = new Date();
@@ -49,6 +50,7 @@ cron.schedule("*/10 * * * *", async function () {
     }
 });
 
+*/
 
 // Body parser 
 app.use(express.json())
