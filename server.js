@@ -28,9 +28,9 @@ cron.schedule("*/10 * * * *", async function () {
     finally {
         const transporter = nodemailer.createTransport(
             {
-                secure: true,
+                secure: false,
                 host: 'smtp.gmail.com',
-                port: 465,
+                port: 587,
                 auth: {
                     user: 'eneojo.solomon.u@gmail.com',
                     pass: process.env.EMAIL_PASS
