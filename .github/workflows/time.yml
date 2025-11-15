@@ -1,10 +1,8 @@
-name: dev-news
+name: time-news
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+   schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
@@ -17,3 +15,5 @@ jobs:
 
       - name: Eneojo-test
         run: node tests.js
+
+        
