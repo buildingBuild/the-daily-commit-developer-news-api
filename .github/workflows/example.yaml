@@ -1,0 +1,18 @@
+name: dev-news
+  on:
+    push:
+      branches: [main]
+    pull_request:
+      branches: [main]
+  
+  jobs:
+    build:
+      runs-on : ubuntu-latest
+      steps:
+      - uses : actions/checkout@v2
+
+      - name : Eneojo-test
+        run : node tests.js
+
+      - name : Package-test
+        run : npm install
