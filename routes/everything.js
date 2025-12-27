@@ -162,21 +162,4 @@ router.post('/upvote', async (req, res) => {
 export default router
 
 
-function shuffle(array) {
-
-    let shuffledArray = [];
-    let usedIndexes = [];
-
-    let i = 0;
-    while (i < array.length) {
-
-        let randNumber = Math.floor(Math.random() * array.length)
-        if (!usedIndexes.includes(randNumber)) {
-            shuffledArray.push(array[randNumber])
-            usedIndexes.push(randNumber)
-            i++
-        }
-    }
-    return shuffledArray
-}
 

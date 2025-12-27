@@ -3,70 +3,27 @@ import lang from './routes/langRoutes.js'
 import everything from './routes/everything.js'
 import categories from './routes/categoryRoutes.js'
 import fs from "fs/promises"
-import databseConnect from './Middleware/databaseConnect.js'
+import databseConnect from './db/databaseConnect.js'
 import errorHandler from './Middleware/error.js'
 import cron from "node-cron"
 import nodemailer from "nodemailer"
-
-
-
-const app = express();
+import connectionToDatabase from './db/databaseConnect.js'
+import populateArticles from './services/populate.js'
+import { app } from './app.js'
 const port = process.env.PORT || 8000
 
-/* cron service works just need to use email api
-cron.schedule("10 * * * *", async function () {
-    const databaseUpdated = false;
-    const newPost = false;
-    const currentDate = new Date();
 
-    try {
-        console.log("Lol") // would ping streams
 
-    }
-    catch (error) {
-        console.log("Lol") // would ping streams
-    }
-    finally {
-        const transporter = nodemailer.createTransport(
-            {
-                secure: false,
-                host: 'smtp.gmail.com',
-                port: 587,
-                auth: {
-                    user: 'eneojo.solomon.u@gmail.com',
-                    pass: process.env.EMAIL_PASS
-                }
-            }
-        );
+connectionToDatabase()
 
-        await transporter.verify();
-        let info = await transporter.sendMail({
-            to: "solomonunwuchola@gmail.com",
-            subject: `Cron service ${currentDate}`,
-            text: `DATABASE UPDATED : ${databaseUpdated}`,
+cron.schedule("* * * * *", populateArticles)
 
-        })
-        console.log("Sent", info.messageId)
-    }
-});
-
-*/
-
-// Body parser 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false })) // for feature that might allow users to add posts
-
-
-// App Use 
-app.use(databseConnect)
-
-
 
 app.use('/news', everything)
 app.use('/languages', lang)
 app.use('/categories', categories)
-
-
 
 app.use((req, res, next) => {
     const error = new Error('Route not found')

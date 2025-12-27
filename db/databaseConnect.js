@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
-let connectionToDatabase = (async (req, res, next) => {
+async function connectionToDatabase() {
+
     await mongoose.connect(process.env.DATABASE_STRING)
         .then(() => console.log("Connected to database"))
         .catch(() => {
@@ -10,8 +11,9 @@ let connectionToDatabase = (async (req, res, next) => {
                 link: "https://github.com/buildingBuild/the-daily-commit-developer-news-api/issues"
             })
         })
-    next();
-})
+
+}
+
+
 
 export default connectionToDatabase
-
