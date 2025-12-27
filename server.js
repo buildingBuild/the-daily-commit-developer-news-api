@@ -16,7 +16,7 @@ const port = process.env.PORT || 8000
 
 connectionToDatabase()
 
-cron.schedule("* * * * *", populateArticles)
+//cron.schedule("* * * * *", populateArticles)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false })) // for feature that might allow users to add posts
@@ -33,4 +33,4 @@ app.use((req, res, next) => {
 app.use(errorHandler)
 
 
-app.listen(port, () => console.log(`Server is running on ${port}`))
+app.listen(port, "0.0.0.0", () => console.log(`Server is running on ${port}`))

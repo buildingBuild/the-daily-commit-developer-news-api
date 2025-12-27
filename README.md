@@ -2,9 +2,14 @@
 
 The Daily Commit is a developer-centric news aggregation REST API that delivers curated insights across key computer science domains (AI, Security, Web, Systems) and popular programming languages(Go, python, Javascript, Rust). Beyond just aggregation, it empowers the community by allowing developers to submit articles, upvote/downvote content, and drive a ranking system that surfaces the best developer news.
 
-## 🌐 Deployed API
-[READ THE DOCUMENTATION FIRST TO GET THE RIGHT ROUTES]<br/>
-[the-daily-commit-developer-news-api-production.up.railway.app](https://the-daily-commit-developer-news-api-production.up.railway.app)
+## 🌐 Deployment Links
+[Refer to the API documentation for available routes and usage examples.]<br/>
+<br/>
+**Primary (Railway):**  
+https://the-daily-commit-developer-news-api-production.up.railway.app/news
+
+**AWS (ECS Fargate):**  
+http://3.129.206.233:8000/news
 
 ## Features
 
@@ -18,3 +23,4 @@ The Daily Commit is a developer-centric news aggregation REST API that delivers 
 <li> MongoDB/Mongoose </li>
 <li> Swagger </li>
 <li> JavaScript </li>
+

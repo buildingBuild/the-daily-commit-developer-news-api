@@ -12,6 +12,5 @@ const votedSchema = mongoose.Schema({
 
 
 })
-
 const voted = mongoose.model("voted", votedSchema, "voted")
 export default voted;
