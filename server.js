@@ -1,6 +1,7 @@
 import express from 'express'
 import lang from './routes/langRoutes.js'
 import everything from './routes/everything.js'
+import health from './routes/healthRoutes.js'
 import categories from './routes/categoryRoutes.js'
 import fs from "fs/promises"
 import databseConnect from './db/databaseConnect.js'
@@ -9,7 +10,7 @@ import cron from "node-cron"
 import nodemailer from "nodemailer"
 import connectionToDatabase from './db/databaseConnect.js'
 import populateArticles from './services/populate.js'
-import { app } from './app.js'
+import { app } from './services/app.js'
 const port = process.env.PORT || 8000
 
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: false })) // for feature that might allow
 app.use('/news', everything)
 app.use('/languages', lang)
 app.use('/categories', categories)
+app.use('/health', health)
 
 app.use((req, res, next) => {
     const error = new Error('Route not found')

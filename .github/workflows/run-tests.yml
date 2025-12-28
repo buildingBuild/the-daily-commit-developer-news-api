@@ -1,0 +1,13 @@
+name: testing-news
+on:
+  schedule:
+    - cron: "0 0 * * 0" 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Package-install
+        run: npm install
+      - name: tests
+        run: npm run test
